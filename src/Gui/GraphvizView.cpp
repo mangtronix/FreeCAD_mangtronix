@@ -72,6 +72,8 @@ QByteArray GraphvizView::exportGraph(const QString& format)
 
 #ifdef FC_OS_LINUX
     QString path = QString::fromUtf8(hGrp->GetASCII("Graphviz", "/usr/bin").c_str());
+#ifdef FC_OS_MACOSX
+    QString path = QString::fromUtf8(hGrp->GetASCII("Graphviz", "/usr/local/bin").c_str());
 #else
     QString path = QString::fromUtf8(hGrp->GetASCII("Graphviz").c_str());
 #endif
